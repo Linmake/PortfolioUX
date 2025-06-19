@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio: ModaHoy E-commerce Redesign</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class', // Enable dark mode using a class
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            fontSize: { 
+              'spectrum-50': ['0.875rem', { lineHeight: '1.25rem' }],    // 14px
+              'spectrum-75': ['1rem', { lineHeight: '1.375rem' }],      // 16px
+              'spectrum-100': ['1.0625rem', { lineHeight: '1.5rem' }],   // 17px
+              'spectrum-200': ['1.125rem', { lineHeight: '1.625rem' }],  // 18px - BASE BODY
+              'spectrum-300': ['1.25rem', { lineHeight: '1.75rem' }],    // 20px
+              'spectrum-400': ['1.375rem', { lineHeight: '1.875rem' }],  // 22px
+              'spectrum-500': ['1.625rem', { lineHeight: '2.125rem' }],  // 26px
+              'spectrum-600': ['1.75rem', { lineHeight: '2.25rem' }],    // 28px
+              'spectrum-700': ['2.125rem', { lineHeight: '2.625rem' }],  // 34px
+              'spectrum-800': ['2.5rem', { lineHeight: '3rem' }],        // 40px
+              'spectrum-900': ['2.8125rem', { lineHeight: '3.375rem' }], // 45px
+            },
+            fontWeight: {
+              'spectrum-light': '300',
+              'spectrum-regular': '400',
+              'spectrum-medium': '500',
+              'spectrum-semibold': '600',
+              'spectrum-bold': '700',
+              'spectrum-extrabold': '800',
+            },
+            colors: {
+              // Grayscale Palette
+              'black': '#000000',
+              'near-black': '#0A0A0A',
+              'gray-900': '#1A1A1A',
+              'gray-800': '#2A2A2A',
+              'gray-700': '#3A3A3A',
+              'gray-600': '#4A4A4A',
+              'gray-500': '#5A5A5A',
+              'gray-400': '#7A7A7A', 
+              'gray-300': '#8A8A8A', 
+              'gray-250': '#A0A0A0', 
+              'gray-200': '#BABABA', 
+              'gray-150': '#D0D0D0', 
+              'gray-100': '#E0E0E0', 
+              'gray-50': '#F0F0F0',  
+              'near-white': '#FAFAFA',
+              'white': '#FFFFFF',
+
+              // Spectrum Light Theme (Grayscale)
+              'spectrum-background-primary-light': '#F4F5F7', 
+              'spectrum-background-secondary-light': '#F0F0F0',
+              'spectrum-background-tertiary-light': '#E9F2FF', 
+              'spectrum-background-modal-overlay-light': 'rgba(0,0,0,0.6)', 
+              'spectrum-background-positive-light': '#E9F2FF', 
+              'spectrum-background-negative-light': '#E9F2FF', 
+              'spectrum-background-accent-default-light': '#0A0A0A', 
+              'spectrum-background-accent-hover-light': '#1A1A1A',   
+              'spectrum-background-accent-down-light': '#000000',    
+              
+              'spectrum-text-primary-light': '#0A0A0A',          
+              'spectrum-text-secondary-light': '#4A4A4A',      
+              'spectrum-text-placeholder-light': '#7A7A7A',    
+              'spectrum-text-accent-default-light': '#0A0A0A',  
+              'spectrum-text-accent-static-white-light': '#FFFFFF', 
+              'spectrum-text-positive-light': '#0A0A0A',       
+              'spectrum-text-negative-light': '#0A0A0A',       
+              
+              'spectrum-border-default-light': '#D0D0D0',     
+              'spectrum-border-hover-light': '#A0A0A0',       
+              'spectrum-border-focus-light': '#0A0A0A',       
+              'spectrum-border-positive-light': '#5A5A5A',    
+              'spectrum-border-negative-light': '#5A5A5A',    
+
+              'spectrum-fill-secondary-light': '#E0E0E0',      
+              'spectrum-fill-tertiary-light': '#D0D0D0',       
+              
+              // Spectrum Dark Theme (Grayscale)
+              'spectrum-background-primary-dark': '#0A0A0A',   
+              'spectrum-background-secondary-dark': '#1A1A1A', 
+              'spectrum-background-tertiary-dark': '#191A22',  
+              'spectrum-background-modal-overlay-dark': 'rgba(0,0,0,0.7)', 
+              'spectrum-background-positive-dark': '#191A22',  
+              'spectrum-background-negative-dark': '#191A22',  
+              'spectrum-background-accent-default-dark': '#FAFAFA', 
+              'spectrum-background-accent-hover-dark': '#E0E0E0',    
+              'spectrum-background-accent-down-dark': '#FFFFFF',     
+              
+              'spectrum-text-primary-dark': '#FAFAFA',           
+              'spectrum-text-secondary-dark': '#BABABA',       
+              'spectrum-text-placeholder-dark': '#8A8A8A',     
+              'spectrum-text-accent-default-dark': '#FAFAFA',   
+              'spectrum-text-accent-static-black-dark': '#0A0A0A', 
+              'spectrum-text-positive-dark': '#FAFAFA',        
+              'spectrum-text-negative-dark': '#FAFAFA',        
+              
+              'spectrum-border-default-dark': '#3A3A3A',      
+              'spectrum-border-hover-dark': '#4A4A4A',        
+              'spectrum-border-focus-dark': '#FAFAFA',        
+              'spectrum-border-positive-dark': '#A0A0A0',     
+              'spectrum-border-negative-dark': '#A0A0A0',     
+
+              'spectrum-fill-secondary-dark': '#191A22',       
+              'spectrum-fill-tertiary-dark': '#3A3A3A',        
+              
+              'spectrum-switch-track-light': '#A0A0A0',        
+              'spectrum-switch-track-dark': '#4A4A4A',         
+              'spectrum-switch-thumb-light': '#FFFFFF',
+              'spectrum-switch-thumb-dark': '#0A0A0A',
+
+              // H1 specific color in dark mode
+              'h1-text-dark': '#FFFFFF', 
+
+              // New Interactive Colors (Atlassian-like Blue)
+              'custom-interactive-bg-light': '#E9F2FF', 
+              'custom-interactive-text-light': '#0A0A0A', 
+              'custom-interactive-bg-dark': '#2058A0',  // Updated for AAA
+              'custom-interactive-text-dark': '#FAFAFA', 
+
+              // Scroll to Top/Bottom button colors
+              'scroll-top-bg-light': '#FFFFFF', 
+              'scroll-top-text-light': '#059669', 
+              'scroll-top-hover-bg-light': '#F0F0F0', 
+              'sidebar-scroll-button-border-light': '#065F46', 
+              
+              'scroll-top-bg-dark': '#86D9CA', 
+              'scroll-top-text-dark': '#0A0A0A',
+              'scroll-top-hover-bg-dark': '#75C5B5',
+
+              // Common Tag Backgrounds (Neutral/Gray)
+              'tag-neutral-bg-light': '#F0F0F0', // gray-50
+              'tag-neutral-text-light': '#0A0A0A',    
+              'tag-neutral-bg-dark': '#2A2A2A',  // gray-800
+              'tag-neutral-text-dark': '#FAFAFA',   
+              
+              // Orange Tag Colors (Metrics & Business)
+              'tag-metricsOrange-bg-light': '#FFF3E0',
+              'tag-metricsOrange-text-light': '#C43E00',
+              'tag-metricsOrange-bg-dark': '#7F2C0D',
+              'tag-metricsOrange-text-dark': '#FFE0B2',
+
+              // Green Tag Colors (Accessibility)
+              'tag-accessibilityGreen-bg-light': '#E0F2F1',
+              'tag-accessibilityGreen-text-light': '#004D40',
+              'tag-accessibilityGreen-bg-dark': '#004D40',
+              'tag-accessibilityGreen-text-dark': '#A7FFEB',
+              
+              // Yellow Tag Colors (Design Categories)
+              'tag-designYellow-bg-light': '#FFF9C4',
+              'tag-designYellow-text-light': '#B26A00',
+              'tag-designYellow-bg-dark': '#5F4336',
+              'tag-designYellow-text-dark': '#FFF59D',
+
+              // Magenta Tag Colors (Tools)
+              'tag-toolsMagenta-bg-light': '#FCE4EC',
+              'tag-toolsMagenta-text-light': '#880E4F',
+              'tag-toolsMagenta-bg-dark': '#6A003A',
+              'tag-toolsMagenta-text-dark': '#F8BBD0',
+
+              // Blue Tag Colors (Skills & Processes)
+              'tag-skillsBlue-bg-light': '#E3F2FD',
+              'tag-skillsBlue-text-light': '#0D47A1',
+              'tag-skillsBlue-bg-dark': '#0D47A1',
+              'tag-skillsBlue-text-dark': '#BBDEFB',
+              
+
+              // Metric Circle Colors (Accessible Green)
+              'metric-circle-bg-light': '#DCFCE7',   
+              'metric-circle-text-light': '#14532D',  
+              'metric-circle-ring-light': '#22C55E', 
+              'metric-circle-bg-dark': '#14532D',    
+              'metric-circle-text-dark': '#DCFCE7',   
+              'metric-circle-ring-dark': '#86EFAC',
+              
+              // "View Portfolio" Ghost Button Colors
+              'button-ghost-text-light': '#0A0A0A',     
+              'button-ghost-border-light': '#000000',   
+              'button-ghost-hover-bg-light': '#E9F2FF', 
+              'button-ghost-hover-text-light': '#0A0A0A',
+              
+              'button-ghost-text-dark': '#FAFAFA',      
+              'button-ghost-border-dark': '#FFFFFF',    
+              'button-ghost-hover-bg-dark': '#065f46',  
+              'button-ghost-hover-text-dark': '#FAFAFA',
+
+              // Tooltip Colors
+              'tooltip-bg': '#2A2A2A', 
+              'tooltip-text': '#FAFAFA', 
+
+              // Sidebar specific colors
+              'sidebar-expanded-text-light': '#2563EB', // This is the original blue for expanded text, may be overridden by link states
+              'sidebar-expanded-text-dark': '#38BDF8',  // This is the original sky for expanded text, may be overridden by link states
+              
+              'sidebar-toggle-hover-bg-light': '#4A4A4A', 
+              'sidebar-toggle-hover-text-light': '#FFFFFF', 
+              'sidebar-toggle-hover-bg-dark': '#D0D0D0', 
+              'sidebar-toggle-hover-text-dark': '#0A0A0A', 
+
+              // Sidebar Nav Item Dark Mode Hover
+              'sidebar-nav-item-hover-bg-dark': '#2559B8',  // Updated for AAA
+              'sidebar-nav-item-hover-text-dark': '#FAFAFA',
+
+              // Global Blue Hover for Nav Links (Header/Footer/Sidebar) - AAA
+              'hover-nav-link-bg-light': '#E0E7FF', 
+              'hover-nav-link-text-light': '#2C2C9C', // Updated for AAA
+              'hover-nav-link-bg-dark': '#3730A3', 
+              'hover-nav-link-text-dark': '#E0E7FF', 
+
+              // Footer Title Colors (Unified)
+              'footer-title-main-light': '#0A0A0A',     
+              'footer-title-main-dark': '#FCD34D',      
+              'footer-title-about-light': '#0A0A0A',     
+              'footer-title-about-dark': '#FCD34D',     
+              'footer-title-contact-light': '#0A0A0A',   
+              'footer-title-contact-dark': '#FCD34D',   
+              'footer-title-legal-light': '#0A0A0A',     
+              'footer-title-legal-dark': '#FCD34D',      
+
+              // Footer Link Specific Hover Colors (Default text color will be grayscale via a base class)
+              // Green (About Me & NovaBank) Hovers
+              'footer-link-green-hover-bg-light': '#F0FDF4',  
+              'footer-link-green-hover-text-light': '#065F46',
+              'footer-link-green-hover-bg-dark': '#065F46',   
+              'footer-link-green-hover-text-dark': '#BBF7D0', 
+              // Yellow (Contact & EcoThreads) Hovers
+              'footer-link-yellow-hover-bg-light': '#FFFBEB',
+              'footer-link-yellow-hover-text-light': '#92400E',
+              'footer-link-yellow-hover-bg-dark': '#78350F',  
+              'footer-link-yellow-hover-text-dark': '#FDE68A',
+              // Blue (Legal & LearnSphere & Header Dropdown Items) Hovers
+              'footer-link-blue-hover-bg-light': '#EFF6FF',   
+              'footer-link-blue-hover-text-light': '#1C3D8A', 
+              'footer-link-blue-hover-bg-dark': '#1E3A8A',    
+              'footer-link-blue-hover-text-dark': '#BFDBFE',
+              
+              // Social Media Brand Colors
+              'brand-linkedin': '#0077B5',
+              'brand-tiktok-light': '#000000',
+              'brand-tiktok-dark': '#FFFFFF',
+              'brand-youtube': '#FF0000',
+              'brand-instagram': '#E1306C',
+              'brand-xtwitter-light': '#000000',
+              'brand-xtwitter-dark': '#FFFFFF',
+              'brand-discord': '#5865F2',
+              'brand-spotify': '#1DB954',
+              'brand-github-light': '#0A0A0A',
+              'brand-github-dark': '#FAFAFA',
+              'brand-behance': '#053EFF',
+              'brand-dribble': '#EA4C89',
+              'brand-medium-light': '#000000',
+              'brand-medium-dark': '#FFFFFF',
+              'brand-substack-light': '#FF6719',
+              'brand-substack-dark': '#FF6719',
+              'brand-software-default-light': '#4A4A4A', // Example: gray-600
+              'brand-software-default-dark': '#BABABA',  // Example: gray-200
+
+              // Case Study Card HSL-derived Hover/Active
+              'card-hover-bg-light': '#F5F8FF', // HSL(218, 100%, 97%) from #E9F2FF
+              'card-hover-bg-dark': '#1E202B',  // HSL(230, 18%, 14%) from #191A22
+              'card-active-bg-light': '#FCFDFF',// HSL(218, 100%, 98.5%)
+              'card-active-bg-dark': '#242735', // HSL(230, 18%, 17%)
+
+              // Popover Button Active State
+              'popover-button-active-bg-light': '#FCFDFF', 
+              'popover-button-active-text-light': '#2C2C9C',
+              'popover-button-active-bg-dark': '#242735',  
+              'popover-button-active-text-dark': '#E0E7FF',
+
+              // Sticky Popover Header Backgrounds
+              'sticky-header-bg-light': '#F7F7F7', // Lighter than spectrum-background-secondary-light (#F0F0F0)
+              'sticky-header-bg-dark': '#262626',  // Lighter than spectrum-background-secondary-dark (#1A1A1A)
+            },
+            borderRadius: {
+              'spectrum-50': '2px',
+              'spectrum-100': '4px',
+              'spectrum-200': '8px',
+              'spectrum-300': '12px',
+              'spectrum-full': '9999px',
+            },
+            boxShadow: {
+              'spectrum-100': '0 1px 2px 0 rgba(0, 0, 0, 0.08)', 
+              'spectrum-200': '0 3px 6px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08)',
+              'spectrum-300': '0 10px 20px rgba(0,0,0,0.12), 0 3px 6px rgba(0,0,0,0.10)',
+              'dropdown-light': '0px 2px 4px rgba(0,0,0,0.05), 0px 8px 16px rgba(0,0,0,0.08)',
+              'dropdown-dark': '0px 4px 8px rgba(0,0,0,0.6)',
+              'sticky-header-light': '0 8px 16px rgba(0,0,0,0.15), 0 4px 8px rgba(0,0,0,0.12)',
+            },
+            spacing: {
+              'spectrum-25': '2px',
+              'spectrum-50': '4px',
+              'spectrum-75': '6px',
+              'spectrum-100': '8px',
+              'spectrum-200': '16px',
+              'spectrum-300': '24px',
+              'spectrum-400': '32px',
+              'spectrum-500': '40px',
+              'spectrum-600': '48px',
+              '24': '6rem', // 96px for pt-24
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              scaleUp: {
+                '0%': { opacity: '0', transform: 'scale(0.95)' },
+                '100%': { opacity: '1', transform: 'scale(1)' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(0)' },
+              },
+              slideOutLeft: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-100%)' },
+              },
+            },
+            animation: {
+              fadeIn: 'fadeIn 0.2s ease-out',
+              scaleUp: 'scaleUp 0.2s ease-out',
+              slideInLeft: 'slideInLeft 0.3s ease-out',
+              slideOutLeft: 'slideOutLeft 0.3s ease-out',
+            },
+            typography: (theme) => ({
+              DEFAULT: { 
+                css: {
+                  color: theme('colors.spectrum-text-primary-light'),
+                  a: {
+                    color: theme('colors.spectrum-text-accent-default-light'),
+                    fontWeight: theme('fontWeight.spectrum-bold'), 
+                    textDecoration: 'none',
+                    '&:hover': {
+                      color: theme('colors.spectrum-text-secondary-light'), 
+                      textDecoration: 'underline',
+                    },
+                  },
+                  h1: { color: theme('colors.spectrum-text-primary-light'), fontSize: theme('fontSize.spectrum-800')[0], lineHeight: theme('fontSize.spectrum-800')[1].lineHeight, fontWeight: theme('fontWeight.spectrum-bold'), marginBottom: '0.6em', marginTop: '1em' },
+                  h2: { color: theme('colors.spectrum-text-primary-light'), fontSize: theme('fontSize.spectrum-600')[0], lineHeight: theme('fontSize.spectrum-600')[1].lineHeight, fontWeight: theme('fontWeight.spectrum-bold'), marginBottom: '0.5em', marginTop: '0.8em' },
+                  h3: { color: theme('colors.spectrum-text-primary-light'), fontSize: theme('fontSize.spectrum-400')[0], lineHeight: theme('fontSize.spectrum-400')[1].lineHeight, fontWeight: theme('fontWeight.spectrum-bold'), marginBottom: '0.4em', marginTop: '0.7em' },
+                  h4: { color: theme('colors.spectrum-text-primary-light'), fontSize: theme('fontSize.spectrum-300')[0], lineHeight: theme('fontSize.spectrum-300')[1].lineHeight, fontWeight: theme('fontWeight.spectrum-semibold'), marginBottom: '0.3em', marginTop: '0.6em' },
+                  strong: { color: 'inherit', fontWeight: theme('fontWeight.spectrum-bold') },
+                  ul: { listStyleType: 'disc', paddingLeft: '1.5em', marginTop: '0.5em', marginBottom: '0.5em' },
+                  ol: { listStyleType: 'decimal', paddingLeft: '1.5em', marginTop: '0.5em', marginBottom: '0.5em' },
+                  li: { marginTop: '0.25em', marginBottom: '0.25em' },
+                  p: { fontSize: theme('fontSize.spectrum-200')[0], lineHeight: theme('fontSize.spectrum-200')[1].lineHeight, fontWeight: theme('fontWeight.spectrum-regular'), marginTop: '0.5em', marginBottom: '0.5em' },
+                  hr: { borderColor: theme('colors.spectrum-border-default-light'), marginTop: '1.5em', marginBottom: '1.5em'},
+                  blockquote: {
+                    color: theme('colors.spectrum-text-secondary-light'),
+                    borderLeftColor: theme('colors.spectrum-border-default-light'),
+                    borderLeftWidth: '0.2rem',
+                    paddingLeft: '1em',
+                    fontStyle: 'normal',
+                    marginTop: '1em',
+                    marginBottom: '1em',
+                  },
+                  '--tw-prose-bullets': theme('colors.spectrum-text-secondary-light'),
+                  '--tw-prose-counters': theme('colors.spectrum-text-secondary-light'),
+                  '--tw-prose-body': theme('colors.spectrum-text-primary-light'),
+                  '--tw-prose-headings': theme('colors.spectrum-text-primary-light'),
+                  '--tw-prose-lead': theme('colors.spectrum-text-secondary-light'),
+                  '--tw-prose-links': theme('colors.spectrum-text-accent-default-light'), 
+                  '--tw-prose-bold': theme('colors.spectrum-text-primary-light'),
+                  '--tw-prose-hr': theme('colors.spectrum-border-default-light'),
+                  '--tw-prose-quotes': theme('colors.spectrum-text-secondary-light'),
+                  '--tw-prose-quote-borders': theme('colors.spectrum-border-default-light'),
+                  '--tw-prose-captions': theme('colors.spectrum-text-secondary-light'),
+                  '--tw-prose-code': theme('colors.spectrum-text-primary-light'),
+                  '--tw-prose-pre-code': theme('colors.spectrum-text-secondary-light'), 
+                  '--tw-prose-pre-bg': theme('colors.spectrum-background-secondary-light'),
+                },
+              },
+              invert: { 
+                css: {
+                  '--tw-prose-body': theme('colors.spectrum-text-primary-dark'),
+                  '--tw-prose-headings': theme('colors.spectrum-text-primary-dark'),
+                  '--tw-prose-lead': theme('colors.spectrum-text-secondary-dark'),
+                  '--tw-prose-links': theme('colors.spectrum-text-accent-default-dark'), 
+                  '--tw-prose-bold': theme('colors.spectrum-text-primary-dark'), 
+                  '--tw-prose-counters': theme('colors.spectrum-text-secondary-dark'),
+                  '--tw-prose-bullets': theme('colors.spectrum-text-secondary-dark'),
+                  '--tw-prose-hr': theme('colors.spectrum-border-default-dark'),
+                  '--tw-prose-quotes': theme('colors.spectrum-text-secondary-dark'),
+                  '--tw-prose-quote-borders': theme('colors.spectrum-border-default-dark'),
+                  '--tw-prose-captions': theme('colors.spectrum-text-secondary-dark'),
+                  '--tw-prose-code': theme('colors.spectrum-text-primary-dark'),
+                  '--tw-prose-pre-code': theme('colors.spectrum-text-secondary-dark'),
+                  '--tw-prose-pre-bg': theme('colors.spectrum-background-secondary-dark'),
+                }
+              }
+            }),
+          }
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          @apply bg-spectrum-background-primary-light dark:bg-spectrum-background-primary-dark scroll-smooth overflow-x-hidden;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+        body {
+          @apply font-sans text-spectrum-text-primary-light dark:text-spectrum-text-primary-dark text-spectrum-200 overflow-x-hidden;
+        }
+      }
+      @layer utilities {
+        .scroll-mt-header {
+          scroll-margin-top: var(--header-height, 4rem); /* Default if --header-height is not set. Programmatic scroll will be more precise. */
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            @apply bg-transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            @apply bg-spectrum-fill-tertiary-light dark:bg-spectrum-fill-tertiary-dark;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            @apply bg-spectrum-text-placeholder-light dark:bg-spectrum-text-placeholder-dark;
+        }
+        .grid-cols-adaptive {
+            grid-template-columns: repeat(auto-fill, minmax(55px, 1fr)); /* Updated minmax from 72px to 55px */
+        }
+        .no-page-scroll {
+          overflow: hidden !important;
+        }
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/client": "https://esm.sh/react-dom@^19.1.0/client",
+    "@/constants": "./constants.tsx",
+    "@/": "./",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="font-sans">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
